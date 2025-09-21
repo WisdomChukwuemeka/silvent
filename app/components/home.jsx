@@ -6,7 +6,7 @@ export const Homepage = () => {
   return (
     <div className="bg-gradient-to-br from-black via-black to-blue-950 text-white pt-0 w-full">
       {/* HERO SECTION */}
-      <section className="w-full relative flex items-center justify-center sm:aspect-3/4 md:aspect-3/4 xl:aspect-3/4">
+      <section className="w-full relative flex items-center justify-center aspect-3/4 sm:aspect-3/4 md:aspect-3/4 xl:aspect-3/4">
         <Image
           src="/stack/hero.png" // replace with your hero image
           alt="Hero Background"
