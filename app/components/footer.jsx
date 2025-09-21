@@ -23,7 +23,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white/10 backdrop-blur-md border-t border-white/20 neon-glass mt-10">
+    <footer className="bg-black/30 backdrop-blur-md border-t border-white/20 neon-glass mt-10">
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white">
         {/* Logo & Description */}
         <div className="flex flex-col gap-3">
