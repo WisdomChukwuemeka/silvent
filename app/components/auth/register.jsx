@@ -9,7 +9,7 @@ export const RegisterForm = () => {
     full_name: "",
     password: "",
     avatar_url: "",
-    role: "user",
+    // role: "user",
   });
 
   const handleChange = (e) => {
