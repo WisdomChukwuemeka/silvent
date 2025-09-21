@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Homepage = () => {
   return (
-    <div className="bg-gradient-to-br from-black via-black to-blue-950 text-white pt-0 w-full">
+    <div className="bg-gradient-to-br from-black via-black to-blue-950 text-white pt-0 min-w-4xl mx-auto">
       {/* HERO SECTION */}
       <section className="w-full relative flex items-center justify-center aspect-3/4 sm:aspect-3/4 md:aspect-3/4 xl:aspect-3/4">
         <Image
