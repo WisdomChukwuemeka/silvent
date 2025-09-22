@@ -31,18 +31,17 @@ export const Homepage = () => {
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="max-w-7xl mx-auto py-20 px-4 flex flex-col md:flex-row items-center gap-12 bg-white/5">
+      <section className="py-20 px-8 flex flex-col md:flex-row justify-center items-center md:gap-3 xl:gap-4 bg-white/5">
         {/* Image on Left */}
-        <div className="flex-1 relative w-full h-80 md:h-80">
           <Image
             src="/stack/about.png" // replace with your image
             alt="Woman holding a book"
-            fill
-            className="object-contain rounded-full"
+            width={250}
+            height={250}
+            className="rounded-full"
           />
-        </div>
         {/* Text on Right */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex flex-col gap-6 md:max-w-4xl md:mx-auto xl:max-w-7xl xl:mx-auto ">
           <h2 className="text-3xl md:text-4xl font-bold neon-text">About Our Platform</h2>
           <p className="text-white/80 text-lg md:text-xl">
             Our website offers innovative video calling and instant messaging features that
