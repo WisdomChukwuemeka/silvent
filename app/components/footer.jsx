@@ -4,6 +4,7 @@ import Image from "next/image"
 
 export default function Footer () {
   return (
+<<<<<<< HEAD
     <footer className="bg-gradient-to-br from-black via-gray-950 to-red-950 text-gray-300 py-10 mt-20 w-full">
       <div className="px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         
@@ -20,6 +21,20 @@ export default function Footer () {
           </Link>
           <p className="mt-4 text-sm text-gray-400">
             Connecting friends, family, employers and employee together.
+=======
+    <footer className="bg-black backdrop-blur-md border-t border-white/20 neon-glass mt-10">
+      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white">
+        {/* Logo & Description */}
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+              L
+            </div>
+            <span className="text-xl font-bold">Logo</span>
+          </div>
+          <p className="text-white/70 text-sm">
+            Your company tagline or short description goes here. Build trust and connect with your users.
+>>>>>>> f3f40a713e5d82eb86bb3d1caabc64673ed0ade4
           </p>
         </div>
 
