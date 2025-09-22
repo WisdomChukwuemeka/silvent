@@ -1,94 +1,63 @@
-"use client";
+"use client"
+import Link from "next/link"
+import Image from "next/image"
 
-import {
-  Home,
-  Info,
-  Phone,
-  MessageSquare,
-  Mail,
-  Users,
-} from "lucide-react";
-
-export default function Footer() {
-  const quickLinks = [
-    { name: "Home", icon: Home, link: "/" },
-    { name: "About", icon: Info, link: "/about" },
-    { name: "Contact", icon: Phone, link: "/contact" },
-    { name: "Support", icon: MessageSquare, link: "/support" },
-  ];
-
-  const socialLinks = [
-    { name: "Partners", icon: Users, link: "/partners" },
-    { name: "Email", icon: Mail, link: "mailto:support@example.com" },
-  ];
-
+export default function Footer () {
   return (
-    <footer className="bg-white/10 backdrop-blur-md border-t border-white/20 neon-glass mt-10">
-      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white">
-        {/* Logo & Description */}
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-              L
-            </div>
-            <span className="text-xl font-bold">Logo</span>
-          </div>
-          <p className="text-white/70 text-sm">
-            Your company tagline or short description goes here. Build trust and connect with your users.
+    <footer className="bg-gradient-to-br from-black via-gray-950 to-red-950 text-gray-300 py-10 mt-20 w-full">
+      <div className="px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        {/* Logo / Brand */}
+        <div>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="/stack/logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="rounded-full w-20"
+            />
+          </Link>
+          <p className="mt-4 text-sm text-gray-400">
+            Connecting friends, family, employers and employee together.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Navigation */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="flex flex-col gap-2">
-            {quickLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.link} className="flex items-center gap-2 hover:text-pink-400 transition">
-                  <link.icon className="w-5 h-5" />
-                  {link.name}
-                </a>
-              </li>
-            ))}
+          <h4 className="text-lg font-semibold text-white mb-4">Navigation</h4>
+          <ul className="space-y-2">
+            <li><Link href="/" className="hover:text-orange-500">Home</Link></li>
+            <li><Link href="/about" className="hover:text-orange-500">About</Link></li>
+            <li><Link href="/projects" className="hover:text-orange-500">Contact</Link></li>
+            <li><Link href="/contact" className="hover:text-orange-500">Support</Link></li>
           </ul>
         </div>
 
-        {/* Social / Resources */}
+        {/* Services */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Resources</h3>
-          <ul className="flex flex-col gap-2">
-            {socialLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.link} className="flex items-center gap-2 hover:text-pink-400 transition">
-                  <link.icon className="w-5 h-5" />
-                  {link.name}
-                </a>
-              </li>
-            ))}
+          <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
+          <ul className="space-y-2">
+            <li>Live Call</li>
+            <li>Voice Call</li>
+            <li>Messages</li>
+            <li>Consulting</li>
           </ul>
         </div>
 
-        {/* Newsletter */}
-        <div className="flex flex-col gap-3">
-          <h3 className="text-lg font-semibold mb-2">Newsletter</h3>
-          <p className="text-white/70 text-sm">Subscribe for updates, news, and offers.</p>
-          <div className="flex gap-2 mt-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="flex-1 p-2 rounded-lg bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-pink-400"
-            />
-            <button className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-4 rounded-lg transition">
-              Subscribe
-            </button>
+        {/* Social Links */}
+        <div>
+          <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
+          <div className="flex space-x-4">
+              <Image src="/stack/logo.png" alt="GitHub" width={30} height={30} />
           </div>
         </div>
       </div>
 
-      {/* Bottom copyright */}
-      <div className="border-t border-white/20 mt-8 py-4 text-center text-white/70 text-sm">
-        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+      {/* Bottom Bar */}
+      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Wisdom Dev. All rights reserved.
       </div>
     </footer>
-  );
+  )
 }
