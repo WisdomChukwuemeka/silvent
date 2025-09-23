@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/layout";
 import Providers from './providers';
+import ProtectedRoute from "./components/protected_route";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
         <Providers>
         <Header />
         <div className=" min-h-screen ">
+        <ProtectedRoute>
         {children}
+        </ProtectedRoute>
         </div>
         <Footer />
          </Providers>

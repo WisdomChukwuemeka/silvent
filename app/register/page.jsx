@@ -37,7 +37,7 @@ export default function Register ({onRegister}) {
       );
       setSuccess(response.data.message);
       setTimeout(() => setSuccess(""), 3000);
-        router.push("/about");
+        router.push("/login");
       console.log(response.data)
       window.dispatchEvent(new Event("authChange"));
       onRegister(response.data.user);
@@ -54,7 +54,7 @@ export default function Register ({onRegister}) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="container max-w-4xl px-2 flex justify-center items-center min-h-screen">
       <form
         onSubmit={handleSubmit}
         className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 sm:w-11/12 md:w-96 lg:w-96 xl:w-96 2xl:w-96 shadow-lg flex flex-col gap-6"
@@ -72,7 +72,9 @@ export default function Register ({onRegister}) {
           placeholder="Full Name"
           value={formData.full_name}
           onChange={handleChange}
-          className="p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="
+          input-text text
+          p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           required
         />
 
@@ -82,7 +84,9 @@ export default function Register ({onRegister}) {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="
+          input-text text
+          p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           required
         />
 
@@ -92,7 +96,9 @@ export default function Register ({onRegister}) {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="
+          input-text text
+          p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           required
         />
 
@@ -102,14 +108,18 @@ export default function Register ({onRegister}) {
           placeholder="Avatar URL"
           value={formData.avatar_url}
           onChange={handleChange}
-          className="p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="
+          input-text text
+          p-3 rounded-lg bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
         />
 
         <select
           name="role"
           value={formData.role}
           onChange={handleChange}
-          className="p-3 rounded-lg bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="
+          input-text text
+          p-3 rounded-lg bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
         >
           <option value="host">Host</option>
           <option value="participant">Participant</option>
@@ -118,7 +128,9 @@ export default function Register ({onRegister}) {
 
         <button
           type="submit"
-          className="bg-white/30 hover:bg-white/50 text-white font-bold py-3 rounded-lg transition"
+          className="
+          input-text text
+          bg-white/30 hover:bg-white/50 text-white font-bold py-3 rounded-lg transition"
         >
           Register
         </button>

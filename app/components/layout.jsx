@@ -16,6 +16,7 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   const [isLoggin, setIsLoggin] = useState(false)
@@ -37,7 +38,7 @@ export default function Header() {
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("is_superuser");
     setIsLoggin(false);
-    router.push("/register")
+    router.push("/login")
   };
 
   const navLinks = [
@@ -68,6 +69,7 @@ export default function Header() {
     fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4 gap-4">
         {/* Logo */}
+        <Link href="/">
        
             <Image 
             src="/stack/logo.png"
@@ -76,6 +78,7 @@ export default function Header() {
             height={50}
             className="w-20 h-10 md:w-25 md:h-15 xl:w-30 xl:h-20"
             />
+            </Link>
          
 
         {/* Search Input */}
@@ -118,10 +121,10 @@ export default function Header() {
 
 
           {dropdownOpen && (
-  <div className="absolute right-0 mt-2 w-72 
+  <div className="absolute right-0 mt-5 w-70 md:w-100 xl:w-140
                   bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950
                   backdrop-blur-md border border-white/20
-                  rounded-lg shadow-lg text-white
+                  rounded-lg shadow-lg text-white md:h-200
                   p-3 grid grid-cols-2 md:grid-cols-2 gap-3">
     {menuItems.map((item) => (
       <a
@@ -135,13 +138,13 @@ export default function Header() {
     ))}
     
     {isLoggin ? (
-      <div className="flex justify-center items-center"
+      <div className="text flex justify-center items-center"
       onClick={handleLogout}>
         <div>
           {Logoutbutton.map((item) => (
-            <div key={item.name} className="flex flex-col items-center gap-1 p-3 rounded hover:bg-white/20 transition text-center">
+            <div key={item.name} className="text flex flex-col items-center gap-1 p-3 rounded hover:bg-white/20 transition text-center">
               <item.icon />
-              <span className="text-base sm:text-[0.8rem] md:text-[1.2rem] xl:text-[1.4rem]">{item.name}</span>
+              <span className="text">{item.name}</span>
             </div>
           ))}
         </div>
