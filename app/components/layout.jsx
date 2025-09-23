@@ -1,7 +1,9 @@
 "use client";
+
 import Image from "next/image";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import {
   Home,
   Info,
@@ -16,7 +18,27 @@ import {
 } from "lucide-react";
 
 export default function Header() {
+  const [isLoggin, setIsLoggin] = useState(false)
+  
+  useEffect(() => {
+  const checkAuth = () => setIsLoggin(!!localStorage.getItem("access_token"));
+  checkAuth();
+  window.addEventListener("authChange", checkAuth);
+  return () => window.removeEventListener("authChange", checkAuth);
+}, []);
+
+
+  const router = useRouter();
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+   const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("is_superuser");
+    setIsLoggin(false);
+    router.push("/register")
+  };
 
   const navLinks = [
     { name: "Home", icon: Home, link: "/" },
@@ -36,11 +58,14 @@ export default function Header() {
     { name: "About", icon: Info, link: "/about" },
     { name: "Notification", icon: Bell, link: "/notifications" },
     { name: "Partners", icon: Users, link: "/partners" },
-    { name: "Logout", icon: LogOut, link: "/logout" },
   ];
+  const Logoutbutton = [
+      { name: "Logout", icon: LogOut, link: "/logout" },
+  ]
 
   return (
-    <header className="w-full bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg neon-glass fixed top-0 left-0 z-50">
+    <header className="w-full bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg neon-glass 
+    fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4 gap-4">
         {/* Logo */}
        
@@ -108,6 +133,21 @@ export default function Header() {
         <span className="text-base sm:text-[0.8rem] md:text-[1.2rem] xl:text-[1.4rem]">{item.name}</span>
       </a>
     ))}
+    
+    {isLoggin ? (
+      <div className="flex justify-center items-center"
+      onClick={handleLogout}>
+        <div>
+          {Logoutbutton.map((item) => (
+            <div key={item.name} className="flex flex-col items-center gap-1 p-3 rounded hover:bg-white/20 transition text-center">
+              <item.icon />
+              <span className="text-base sm:text-[0.8rem] md:text-[1.2rem] xl:text-[1.4rem]">{item.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : ("")}
+    
   </div>
 )}
 

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
   Video,
@@ -88,9 +90,23 @@ export const plans = [
 
 export const Homepage = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isLoggin, setIsLoggin] = useState(false)
+    
+    useEffect(() => {
+      const updateLogin = () => {
+        const token = localStorage.getItem("access_token")
+      setIsLoggin(!!token)
+      }
+      // check initail login state
+      updateLogin()
+  
+      // listen for manual auth change
+      window.addEventListener("authChange", updateLogin)
+      return () => window,removeEventListener("authChange", updateLogin);
+    }, [])
 
   const toggle = (idx) => {
-    setOpenIndex((prev) => (prev === idx ? null : idx));
+    setOpenIndex((prev) => (prev === idx ? undefined : idx));
   };
   return (
     <div className="bg-gradient-to-br from-black via-black to-red-950 text-white pt-0">
@@ -113,20 +129,25 @@ export const Homepage = () => {
           <p className="text-lg md:text-2xl mb-6 text-white/80">
             Experience seamless communication with your friends, family, and colleagues.
           </p>
+          {isLoggin ? ("") : (
+            <Link href={"/register"}>
           <button className="bg-pink-400 hover:bg-pink-500 px-8 py-3 rounded-lg font-bold text-white neon-button transition">
             Get Started
           </button>
+          </Link>
+          )}
+          
         </div>
       </section>
 
       {/* ================= ABOUT SECTION ================= */}
-      <section className="py-24 px-6 md:px-12 flex flex-col md:flex-row items-center md:gap-12 xl:justify-center bg-gradient-to-r">
+      <section className="py-24 px-6 md:px-12 flex flex-col md:flex-row items-center md:gap-12 xl:justify-center">
         <Image
           src="/stack/about.png"
           alt="Smiling woman holding a book"
           width={280}
           height={280}
-          className="rounded-full shadow-xl mb-10 md:mb-0"
+          className="bg-contain rounded-full shadow-xl mb-10 md:mb-0"
         />
         <div className="flex flex-col gap-6 max-w-2xl xl:max-w-7xl text-center md:text-left">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
